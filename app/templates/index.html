@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>genre-generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Loading Bootstrap -->
+    <link href="../static/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- replace favicon.ico with a new image.-->
+    <link rel="shortcut icon" href="../static/icons/retro_tv9.jpg">
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
+</head>
+
+<body>
+    <div class="container" style="margin:2em;">
+        <form action='/getting' method = 'post'>
+		{{form.hidden_tag()}}
+            <h1> Enter a wikipedia url for a tv show. </h1><br/>
+            <div id='container'>
+            {{form.url(placeholder='Wikipedia url')}}
+ <a href='#' class="btn" onclick='addRow(this);return false;'>Add row</a>
+            
+        </div>
+            <input class="btn btn-info" type="submit" value="Fetch Genre(s)"></form>
+           
+        </div>
+    
+</body>
+<script type='text/javascript'>
+function addRow(caller) {
+    //add another url box
+    id =$(caller).parent().attr('id');
+    var i=$('#container input').length+1;
+    $(caller).remove();
+    $('#'+id).append("<br/> <input type='text' placeholder='Wikipedia url' id='url-"+i+"' name='url-"+i+"' />");
+    $('#'+id).append("<button onclick='addRow(this)'>Add row</button>");
+}
+</script>
+</html>

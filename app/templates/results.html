@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>genre-generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Loading Bootstrap -->
+    <link href="../static/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- replace favicon.ico with a new image.-->
+    <link rel="shortcut icon" href="../static/icons/retro-tv-icon1.jpg">
+</head>
+
+<div class='container' style='margin:2em;'>
+	<h1> And the genre is... </h1>
+	{% for r in resp %}
+	<h4>{{r}}</h4>
+	{% for i in resp[r] %}
+		<p>{{i}}</p>
+	{% endfor %}
+	{% endfor %}
+		<br>
+	<a href='/index' class="btn btn-info">Back</a>
+</div>
+
